@@ -17,7 +17,7 @@ kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/deploy-ingress-nginx.
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 kubectl apply -f ingress.yaml
 
-sleep 3
+./response-test.sh
 
 # LB_IP=$(kubectl get services --namespace ingress-nginx ingress-nginx-controller --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
