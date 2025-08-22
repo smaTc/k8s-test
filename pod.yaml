@@ -1,0 +1,19 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: bootcamp-pod
+  labels:
+    app: bootcamp-pod
+spec:
+  containers:
+    - name: bootcamp-pod
+      image: gcr.io/google-samples/kubernetes-bootcamp:v1
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 8080

@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: load-balancer-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: bootcamp-service
+  ports:
+    - port: 8080
+      targetPort: 8080
+      name: lb
