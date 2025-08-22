@@ -8,14 +8,17 @@ kind create cluster --config cluster.yaml
 docker pull gcr.io/google-samples/kubernetes-bootcamp:v1
 kind load docker-image gcr.io/google-samples/kubernetes-bootcamp:v1
 
-kubectl apply -f pod.yaml
-kubectl apply -f service.yaml
+kubectl apply -f bootcamp-pod.yaml
+kubectl apply -f bootcamp-service.yaml
 
-# kubectl apply -f load-balancer.yaml
+# kubectl apply -f bootcamp-loadbalancer.yaml
 
 kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/deploy-ingress-nginx.yaml
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
-kubectl apply -f ingress.yaml
+kubectl apply -f bootcamp-ingress.yaml
+
+echo "waiting for cluster to assign ingress IPs..."
+sleep 10
 
 ./response-test.sh
 

@@ -3,10 +3,10 @@ apiVersion: v1
 metadata:
   name: bootcamp-pod
   labels:
-    app: bootcamp-pod
+    app: bootcamp-pod-app
 spec:
   containers:
-    - name: bootcamp-pod
+    - name: bootcamp-pod-container
       image: gcr.io/google-samples/kubernetes-bootcamp:v1
       resources:
         requests:
